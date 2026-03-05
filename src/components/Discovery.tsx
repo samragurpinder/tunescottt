@@ -3,6 +3,7 @@ import { Sparkles, Flame, Smile, Frown, Heart, Zap, Coffee, Moon } from 'lucide-
 import { motion } from 'motion/react';
 import { getTrendingSongs, getMoodPlaylist, type VideoResult } from '../services/youtubeService';
 import { VideoCard } from './VideoCard';
+import { cn } from '../lib/utils';
 
 interface DiscoveryProps {
   onSelectVideo: (video: VideoResult) => void;
@@ -140,12 +141,4 @@ export function Discovery({ onSelectVideo }: DiscoveryProps) {
       </section>
     </div>
   );
-}
-
-// Helper for className merging since we can't import utils inside this file easily if we don't have it
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
 }
